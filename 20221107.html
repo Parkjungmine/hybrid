@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>document</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+
+    <div id="app">
+      <button @click="loveCount++;">고백하기</button>
+      <p>{{boy}}가 {{girl}}에게 고백했지만...{{loveCount}}번 차였다.</p>
+    </div>
+
+    <div id="app2">
+      <button @click="loveCount++;">고백하기</button>
+      <p>{{boy}}가 {{girl}}에게 <b v-html="style"></b>했지만...{{loveCount}}번 차였다.</p>
+    </div>
+
+    <script>
+      const {createApp} = Vue;
+      createApp({
+        //let app = createApp({ 가 보통 들어가지만 여기선 안쓴다. 씬이담고 있는 것 ( 유니티,안드로이드가 만들어졌을때 처음으로 만들어지는 것= 씬) 씬 : 하이어라키를 갖고있는것. html은 헤드나 바디를 들고있다. (DOM)게임 오브젝트 = 엘리먼트 / 프리팹으로 버튼이나 캐릭터를만든다 뷰로만드는게그런것들이다. /// 뷰객체를 미리 생성해놔야 하기 때문에 먼저 써놓은거다.가상 돔이 vue의 특징이다. 돔을 사용하는것. 외부에선 사용할 수 없는 vue객체안에서만 사용할 수 있는 맴버 객체다. (마운트 = 라이딩)
+        data(){
+          return {
+            boy: "민제",
+            girl: "좌변기",
+            loveCount: "0",
+            style: '<span style="color:red;"> 고백 </span>'
+          }
+        },
+        mounted(){
+          console.log("마운트했쪙");
+        }
+      }).mount("#app2");
+    </script>
+
+
+
+  </body>
+</html>
